@@ -4,14 +4,17 @@ class Login extends Component {
 	state = {
 		isSigned: false,
 	};
-	onButtonCklick = () => {
+	logginUser = () => {
 		this.setState({ isSigned: true });
 	};
+	onButtonCklick = () => {
+		setTimeout(this.logginUser, 3000);
+	};
 	render() {
-		return this.state.isSigned === true ? (
+		return this.state.isSigned ? (
 			<span>Hello User</span>
 		) : (
-			<button onClick={setTimeout(this.onButtonCklick, 3000)}>Sign in</button>
+			<button onClick={this.onButtonCklick}>Sign in</button>
 		);
 	}
 }
