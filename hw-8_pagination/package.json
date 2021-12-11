@@ -1,7 +1,5 @@
 {
-
-  "name": "react_preload",
-
+  "name": "hw-8_pagination",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
