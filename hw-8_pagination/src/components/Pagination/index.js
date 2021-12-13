@@ -3,7 +3,8 @@ let btnArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function Pagination() {
 	const [pictures, setPictures] = useState([]);
-	const getPicture = async (elem) => {
+	const getPicture = async (elem = 1) => {
+		console.log(elem);
 		const response = await fetch(
 			`https://jsonplaceholder.typicode.com/photos?_page=${elem}&_limit=${10}`
 		);
