@@ -7,8 +7,8 @@ const arrProperties = [
 	"Шампиньоны",
 ];
 function DropDown() {
-	const [visible, setVisible] = useState(true);
-	let arrowDirection = visible && "rotate(180deg)";
+	const [visible, setVisible] = useState(false);
+	const arrowDirection = visible ? "rotate(180deg)" : "none";
 	return (
 		<div className="pizza">
 			<label>
@@ -22,8 +22,8 @@ function DropDown() {
 			</label>
 			{visible && (
 				<ul>
-					{arrProperties.map((ingredient, i) => {
-						return <li key={i}>{ingredient}</li>;
+					{arrProperties.map((ingredient) => {
+						return <li key={ingredient}>{ingredient}</li>;
 					})}
 				</ul>
 			)}
