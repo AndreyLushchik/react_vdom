@@ -10,8 +10,8 @@ function ArrState() {
 	return (
 		<div>
 			<button onClick={newName}>Add name</button>
-			{people.map((name) => {
-				return <span key={Math.floor(Math.random() * 1_000_000)}>{name}</span>;
+			{people.map((name, index) => {
+				return <span key={index}>{name}</span>;
 			})}
 		</div>
 	);
