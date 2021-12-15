@@ -6,7 +6,6 @@ const TimePicker = () => {
 	useEffect(() => {
 		if (hour < 0) {
 			setHour(23);
-			setMinute(59);
 		}
 		if (hour > 23) {
 			setHour(0);
