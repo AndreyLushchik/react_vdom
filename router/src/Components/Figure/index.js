@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const Figure = () => {
 	const colors = ["red", "gray", "blue", "cyan", "yellow", "orange"];
-	const figure = ["circle", "square"];
-	const [elem, setElem] = useState("circle");
-	const [color, setColor] = useState("red");
+	const figures = ["circle", "square"];
+	const params = useParams();
 	return (
 		<div>
 			<div className="form">
-				{figure.map((form) => {
+				{figures.map((form, index) => {
 					return (
-						<Link onClick={() => setElem(form)} to={`/${form}/${color}`}>
+						<Link
+							onClick={() => (params.figure = form)}
+							key={index}
+							to={`/${form}/${params.colored}`}
+						>
 							<button>{form}</button>
 						</Link>
 					);
@@ -22,15 +25,18 @@ const Figure = () => {
 					return (
 						<Link
 							key={index}
-							onClick={() => setColor(color)}
-							to={`/${elem}/${color}`}
+							onClick={() => (params.colored = color)}
+							to={`/${params.figure}/${color}`}
 						>
 							<button>{color}</button>
 						</Link>
 					);
 				})}
 			</div>
-			<div className={elem} style={{ background: color }}></div>
+			<div
+				className={params.figure}
+				style={{ background: params.colored }}
+			></div>
 		</div>
 	);
 };
